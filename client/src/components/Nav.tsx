@@ -26,23 +26,24 @@ export default function Nav() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b" style={{ backgroundColor: 'rgba(245,240,232,0.97)', borderColor: '#D9D2C4' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="font-display font-bold text-xl tracking-tight">
-            <span className="text-offwhite">ANDREA</span>
-            <span className="text-copper"> SALINAS</span>
+            <span style={{ color: '#1C1C1C' }}>ANDREA</span>
+            <span style={{ color: '#B87333' }}> SALINAS</span>
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {links.map(link => (
               link.href.startsWith('/#') ? (
                 <button
                   key={link.label}
                   onClick={() => handleNav(link.href)}
-                  className="text-zinc-400 hover:text-offwhite text-sm font-medium tracking-wide transition-colors"
+                  className="text-sm font-medium tracking-wide transition-colors"
+                  style={{ color: '#5A5A5A' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#1C1C1C')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#5A5A5A')}
                 >
                   {link.label}
                 </button>
@@ -50,7 +51,8 @@ export default function Nav() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-zinc-400 hover:text-offwhite text-sm font-medium tracking-wide transition-colors"
+                  className="text-sm font-medium tracking-wide transition-colors"
+                  style={{ color: '#5A5A5A' }}
                 >
                   {link.label}
                 </Link>
@@ -58,9 +60,9 @@ export default function Nav() {
             ))}
           </div>
 
-          {/* Mobile hamburger */}
           <button
-            className="md:hidden text-zinc-400 hover:text-offwhite p-2"
+            className="md:hidden p-2 transition-colors"
+            style={{ color: '#5A5A5A' }}
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -69,16 +71,16 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-zinc-900 border-t border-zinc-800">
+        <div className="md:hidden border-t" style={{ backgroundColor: '#EDE8DE', borderColor: '#D9D2C4' }}>
           <div className="px-4 py-4 flex flex-col gap-1">
             {links.map(link => (
               link.href.startsWith('/#') ? (
                 <button
                   key={link.label}
                   onClick={() => handleNav(link.href)}
-                  className="text-left text-offwhite text-lg font-medium py-3 px-2 border-b border-zinc-800 hover:text-copper transition-colors"
+                  className="text-left text-lg font-medium py-3 px-2 border-b transition-colors"
+                  style={{ color: '#1C1C1C', borderColor: '#D9D2C4' }}
                 >
                   {link.label}
                 </button>
@@ -87,7 +89,8 @@ export default function Nav() {
                   key={link.label}
                   to={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-offwhite text-lg font-medium py-3 px-2 border-b border-zinc-800 hover:text-copper transition-colors"
+                  className="text-lg font-medium py-3 px-2 border-b transition-colors"
+                  style={{ color: '#1C1C1C', borderColor: '#D9D2C4' }}
                 >
                   {link.label}
                 </Link>

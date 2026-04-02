@@ -1,129 +1,126 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
-import { ArrowRight, Phone, Users, ClipboardList, Mail, MessageSquare, Brain, ChevronRight } from 'lucide-react'
+import { ArrowRight, Mail, ExternalLink } from 'lucide-react'
 
-// Hero image - video village on-set producer
 const HERO_IMAGE = 'https://fal.media/files/lion/GBzFmVJmLCFVSFCbMjJUl_image.webp'
 
-// Client logos / names
 const CLIENTS = [
-  'Walmart', 'McDonald\'s', 'Hyundai', 'H-E-B', 'Mattress Firm',
-  'Dos Equis', 'Baylor Scott & White', 'Univision', 'Telemundo',
-  'NBCUniversal', 'Ford', 'Toyota'
+  'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
+  'Dos Equis', 'BMW', 'Hyundai', 'Burger King', 'Frito-Lay',
+  'Mattress Firm', 'H-E-B', 'Mary Kay', 'Garnier', "L'Oréal",
+  'AstraZeneca', 'Baylor Health', 'Make-A-Wish'
 ]
 
-// Services data - 4 cards in correct order
 const SERVICES = [
   {
     number: '01',
-    title: 'Production Bid Desk',
-    subtitle: 'AI-Powered Budget & Bid Tool',
-    description: 'Instantly generate professional production bids, budgets, and timelines. Built for Executive Producers, Production Managers, Producers, Cost Advisors, and Beginners starting out in production.',
+    title: 'AI Video Production',
+    subtitle: 'Cinematic Brand Content',
+    description: 'Cinematic brand campaigns, nonprofit storytelling, and commercial content — produced with AI at a fraction of traditional cost. Character-consistent, photorealistic, and broadcast-quality.',
     tags: ['Branded Campaigns', 'Commercial', 'Nonprofit', 'Social Content', 'Digital', 'Print'],
-    cta: 'Try Production Bid Desk',
-    ctaLink: 'https://preview--prod-bid-buddy.lovable.app',
-    external: true,
+    pricing: 'Starting at $500/video',
+    cta: 'Book a Free 30-Min Call',
+    ctaLink: '#contact',
+    secondaryCta: null,
+    secondaryCtaLink: null,
   },
   {
     number: '02',
     title: 'Production Consulting',
     subtitle: 'Strategy & Execution',
-    description: 'End-to-end production strategy for brands, agencies, and networks. From concept to final delivery — multicultural campaigns, integrated media, and Fortune 100 execution.',
-    tags: ['Branded Campaigns', 'Commercial', 'Nonprofit', 'Social Content', 'Digital', 'Print'],
-    cta: 'Book a Consultation',
+    description: '23+ years managing multicultural, multi-million dollar campaigns for Fortune 100 brands. I help agencies and brands navigate bid strategy, logistics, risk mitigation, and production planning — now powered by AI tools.',
+    tags: ['Branded Campaigns', 'Commercial', 'Print Production', 'Nonprofit', 'Digital', 'Pre-Production'],
+    pricing: 'Starting at $250/hr · Retainers available',
+    cta: 'Book a Free 30-Min Call',
     ctaLink: '#contact',
-    external: false,
+    secondaryCta: null,
+    secondaryCtaLink: null,
   },
   {
     number: '03',
     title: 'AI Automation & Agents',
     subtitle: 'VocaStack — Virtual Agent Platform',
-    description: 'Custom AI agents that handle the repetitive work so you can focus on growing your business. Answer calls, capture leads, pre-qualify clients, handle intake, follow up automatically — 24/7.',
-    tags: ['Real Estate', 'Home Services', 'Dental', 'Medical / Doctors', 'Small Businesses', 'Coaches', 'Teachers / Education'],
-    cta: 'Explore VocaStack',
-    ctaLink: 'https://vocastack.lovable.app',
-    external: true,
-    pricing: {
-      solo: '$750–$1,500 setup · $299–$599/mo',
-      enterprise: 'Custom Pricing',
-    }
-  },
-  {
-    number: '04',
-    title: 'Reel Genius AI',
-    subtitle: 'Listing Reel Generator',
-    description: 'Turn any property listing into a fully produced marketing reel, flyer, and caption kit in seconds. Built specifically for real estate agents and brokerages.',
-    tags: ['Real Estate', 'Realtors', 'Brokerages', 'Property Marketing'],
-    cta: 'Coming Soon',
-    ctaLink: '#',
-    external: false,
-    comingSoon: true,
+    description: 'Custom AI agents that answer calls, capture leads, pre-qualify clients, and handle intake — 24/7, without you lifting a finger. Built for small businesses and service providers who are ready to stop losing leads and start scaling.',
+    tags: ['Home Services', 'Dental', 'Medical', 'Real Estate', 'Small Businesses', 'Coaches', 'Teachers', 'Nonprofits'],
+    pricing: 'Solo: $750–$1,500 setup · $299–$599/mo · Enterprise: Custom',
+    cta: 'Book a Free 30-Min Call',
+    ctaLink: '#contact',
+    secondaryCta: 'Explore VocaStack',
+    secondaryCtaLink: 'https://vocastack.lovable.app',
   },
 ]
 
-// AI Agent capabilities
-const AGENT_CAPABILITIES = [
-  { icon: Phone, title: 'Answer Calls & Voicemails', desc: 'Your AI agent picks up every call, 24/7 — no missed leads, no voicemail purgatory.' },
-  { icon: Users, title: 'Capture & Pre-Qualify Leads', desc: 'Automatically filters serious prospects from tire-kickers before they ever reach you.' },
-  { icon: ClipboardList, title: 'Client Intake & Onboarding', desc: 'Collects forms, gathers info, and gets clients ready — perfect for dental, medical, real estate, and agencies.' },
-  { icon: Mail, title: 'Write Emails & Follow-Ups', desc: 'Personalized outreach and follow-up sequences running on autopilot.' },
-  { icon: MessageSquare, title: 'Answer Customer Questions', desc: 'FAQs, pricing, scheduling, appointments — handled instantly without you lifting a finger.' },
-  { icon: Brain, title: 'Organize, Decide & Scale', desc: 'Stop doing monotonous daily tasks. Start focusing on the work that actually grows your business.' },
-]
+const cream = '#F5F0E8'
+const sand = '#EDE8DE'
+const border = '#D9D2C4'
+const charcoal = '#1C1C1C'
+const copper = '#B87333'
+const muted = '#5A5A5A'
+const faint = '#8A8070'
+const tagBorder = '#C8C0B0'
+const tagText = '#6A6050'
 
 export default function Home() {
   const servicesRef = useRef<HTMLElement>(null)
 
   return (
-    <div className="min-h-screen bg-charcoal text-offwhite">
+    <div className="min-h-screen" style={{ backgroundColor: cream, color: charcoal }}>
       <Nav />
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-end pb-16 pt-16 overflow-hidden">
-        {/* Background image */}
+      {/* HERO */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={HERO_IMAGE}
-            alt="Andrea Salinas on set at video village"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/30" />
+          <img src={HERO_IMAGE} alt="Andrea Salinas on set" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${cream}F5 40%, ${cream}99 65%, ${cream}22 100%)` }} />
+          <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${cream}BB 0%, transparent 40%)` }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-2xl">
-            <p className="section-label mb-4">Executive Producer · AI Strategist</p>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
+            <p className="section-label mb-4">Executive Producer · AI Strategist · Houston, TX</p>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6" style={{ color: charcoal }}>
               Andrea<br />
-              <span className="text-gradient">Salinas</span>
+              <span style={{ color: copper }}>Salinas</span>
             </h1>
-            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-4 font-light">
-              Global Integrated Producer · AI Consultant · Virtual Agent Architect · Emerging Technology Strategist
+            <p className="text-base sm:text-lg leading-relaxed mb-4 font-light" style={{ color: '#3A3A3A' }}>
+              23 years of Fortune 100 production — reimagined with AI.
             </p>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-8 max-w-lg">
-              20+ years producing Fortune 100 campaigns. Now building AI systems that automate the work that keeps businesses stuck — so you can focus on scaling.
+            <p className="text-sm sm:text-base leading-relaxed mb-8 max-w-lg" style={{ color: muted }}>
+              From Walmart to McDonald's to Make-A-Wish — I've produced it all. Now I'm building AI tools and video content that give brands and small businesses a real edge.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/work" className="btn-copper inline-flex items-center gap-2">
-                View My Work <ArrowRight size={16} />
-              </Link>
-              <a href="#services" className="btn-outline inline-flex items-center gap-2"
-                onClick={e => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) }}>
-                Explore Services
+              <a
+                href="#services"
+                onClick={e => { e.preventDefault(); servicesRef.current?.scrollIntoView({ behavior: 'smooth' }) }}
+                className="btn-copper inline-flex items-center gap-2"
+              >
+                View Services <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://prod-bid-buddy.lovable.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2"
+              >
+                Production Bid Desk <ExternalLink size={14} />
               </a>
             </div>
           </div>
         </div>
+
+        <div className="absolute bottom-8 right-8 px-4 py-3 text-right hidden sm:block" style={{ backgroundColor: `${cream}EE`, border: `1px solid ${border}` }}>
+          <p className="font-display font-black text-2xl" style={{ color: copper }}>23+</p>
+          <p className="text-xs tracking-widest uppercase" style={{ color: faint }}>Years in Production</p>
+        </div>
       </section>
 
-      {/* ── CLIENT TICKER ── */}
-      <section className="bg-zinc-900 border-y border-zinc-800 py-4 overflow-hidden">
-        <div className="flex gap-12 animate-none whitespace-nowrap">
+      {/* CLIENT TICKER */}
+      <section className="border-y py-4 overflow-hidden" style={{ backgroundColor: sand, borderColor: border }}>
+        <div className="flex gap-12 whitespace-nowrap">
           <div className="flex gap-12 items-center px-6">
             {[...CLIENTS, ...CLIENTS].map((client, i) => (
-              <span key={i} className="text-zinc-500 text-sm font-medium tracking-widest uppercase shrink-0">
+              <span key={i} className="text-sm font-medium tracking-widest uppercase shrink-0" style={{ color: faint }}>
                 {client}
               </span>
             ))}
@@ -131,172 +128,116 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* SERVICES */}
       <section id="services" ref={servicesRef} className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="mb-16">
           <p className="section-label mb-3">What I Do</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold">
-            4 Ways I Can Help<br />
-            <span className="text-gradient">Your Business</span>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold" style={{ color: charcoal }}>
+            Three Ways I Can<br />
+            <span style={{ color: copper }}>Help Your Business</span>
           </h2>
-          <p className="text-zinc-400 mt-4 max-w-xl text-base leading-relaxed">
+          <p className="mt-4 max-w-xl text-base leading-relaxed" style={{ color: muted }}>
             From Fortune 100 production to AI automation — I bring the strategy, the tools, and the execution.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {SERVICES.map((service) => (
-            <div key={service.number} className="card-dark relative group hover:border-zinc-700 transition-all duration-300">
-              {service.comingSoon && (
-                <span className="absolute top-4 right-4 bg-zinc-800 text-zinc-400 text-xs px-2 py-1 rounded tracking-wide uppercase">
-                  Coming Soon
-                </span>
-              )}
+            <div key={service.number} className="relative flex flex-col transition-all duration-300" style={{ backgroundColor: sand, border: `1px solid ${border}`, padding: '1.5rem' }}>
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-copper font-mono text-sm font-bold">{service.number}</span>
+                <span className="font-mono text-sm font-bold shrink-0" style={{ color: copper }}>{service.number}</span>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-offwhite">{service.title}</h3>
-                  <p className="text-copper text-xs font-medium tracking-wide mt-0.5">{service.subtitle}</p>
+                  <h3 className="font-display text-xl font-bold" style={{ color: charcoal }}>{service.title}</h3>
+                  <p className="text-xs font-medium tracking-wide mt-0.5" style={{ color: copper }}>{service.subtitle}</p>
                 </div>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">{service.description}</p>
-
-              {/* Pricing for AI Agents */}
-              {service.pricing && (
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="bg-zinc-800 p-3 rounded">
-                    <p className="text-copper text-xs font-bold uppercase tracking-wide mb-1">Solo</p>
-                    <p className="text-offwhite text-xs">{service.pricing.solo}</p>
-                  </div>
-                  <div className="bg-zinc-800 p-3 rounded">
-                    <p className="text-copper text-xs font-bold uppercase tracking-wide mb-1">Enterprise</p>
-                    <p className="text-offwhite text-xs">{service.pricing.enterprise}</p>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex flex-wrap gap-2 mb-5">
+              <p className="text-sm leading-relaxed mb-4" style={{ color: muted }}>{service.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
                 {service.tags.map(tag => (
-                  <span key={tag} className="text-xs text-zinc-500 border border-zinc-700 px-2 py-0.5 rounded-sm">
+                  <span key={tag} className="text-xs px-2 py-0.5 rounded-sm" style={{ color: tagText, border: `1px solid ${tagBorder}` }}>
                     {tag}
                   </span>
                 ))}
               </div>
-
-              {!service.comingSoon && (
-                service.external ? (
+              <p className="text-xs mb-5 font-mono" style={{ color: faint }}>{service.pricing}</p>
+              <div className="mt-auto flex flex-col gap-3">
+                <a
+                  href={service.ctaLink}
+                  onClick={e => {
+                    if (service.ctaLink === '#contact') {
+                      e.preventDefault()
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+                  style={{ color: copper }}
+                >
+                  {service.cta} <ArrowRight size={14} />
+                </a>
+                {service.secondaryCta && (
                   <a
-                    href={service.ctaLink}
+                    href={service.secondaryCtaLink!}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-copper text-sm font-medium hover:text-copper-light transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+                    style={{ color: faint }}
                   >
-                    {service.cta} <ChevronRight size={14} />
+                    {service.secondaryCta} <ExternalLink size={13} />
                   </a>
-                ) : (
-                  <a
-                    href={service.ctaLink}
-                    onClick={e => {
-                      if (service.ctaLink === '#contact') {
-                        e.preventDefault()
-                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 text-copper text-sm font-medium hover:text-copper-light transition-colors"
-                  >
-                    {service.cta} <ChevronRight size={14} />
-                  </a>
-                )
-              )}
+                )}
+              </div>
             </div>
           ))}
         </div>
 
         {/* Hire Me CTA */}
-        <div className="mt-16 bg-zinc-900 border border-copper/30 p-8 sm:p-12 text-center">
+        <div className="mt-16 p-8 sm:p-12 text-center" style={{ backgroundColor: sand, border: `1px solid ${copper}` }}>
           <p className="section-label mb-3">Ready to Work Together?</p>
-          <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4">
-            Hire Me
+          <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4" style={{ color: charcoal }}>
+            Let's Build Something<br />That Actually Works
           </h3>
-          <p className="text-zinc-400 max-w-lg mx-auto mb-8 text-sm leading-relaxed">
-            Whether you need a seasoned executive producer, an AI strategy session, or a custom automation system — let's talk about what you're building.
+          <p className="max-w-lg mx-auto mb-8 text-sm leading-relaxed" style={{ color: muted }}>
+            Whether you need AI video production, production consulting, or AI agents built for your business — I'm open for new clients. Book a free 30-minute call and let's talk.
           </p>
           <a
             href="#contact"
             onClick={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
             className="btn-copper inline-flex items-center gap-2"
           >
-            Get In Touch <ArrowRight size={16} />
+            Book a Free Call <ArrowRight size={16} />
           </a>
         </div>
       </section>
 
-      {/* ── VOCASTACK / AI AGENTS DEEP DIVE ── */}
-      <section className="bg-zinc-950 py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12 max-w-2xl">
-            <p className="section-label mb-3">VocaStack · AI Automation</p>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-              Your Business,<br />
-              <span className="text-gradient">Running on Autopilot</span>
-            </h2>
-            <p className="text-zinc-400 text-base leading-relaxed">
-              Most people are either scared of AI or don't know where to start. That's exactly why I build these for you. Your AI agent works while you sleep — handling the repetitive tasks that eat your day so you can focus on what actually moves the needle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {AGENT_CAPABILITIES.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-zinc-900 border border-zinc-800 p-6 hover:border-copper/40 transition-all duration-300">
-                <div className="w-10 h-10 bg-copper/10 flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-copper" />
-                </div>
-                <h4 className="font-display text-base font-bold text-offwhite mb-2">{title}</h4>
-                <p className="text-zinc-500 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <a
-              href="https://vocastack.lovable.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-copper inline-flex items-center gap-2"
-            >
-              Explore VocaStack <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRODUCTION BID DESK ── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* PRODUCTION BID DESK */}
+      <section className="border-y py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: sand, borderColor: border }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="section-label mb-3">Production Bid Desk</p>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-              Bid Smarter.<br />
-              <span className="text-gradient">Win More Jobs.</span>
+            <p className="section-label mb-3">Featured Tool</p>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold mb-2" style={{ color: charcoal }}>
+              Production<br />
+              <span style={{ color: copper }}>Bid Desk</span>
             </h2>
-            <p className="text-zinc-400 text-base leading-relaxed mb-4">
-              Upload a script or storyboard and get a complete production bid — budget breakdown, timeline, crew requirements, and logistics — in seconds.
+            <p className="text-xs tracking-widest uppercase mb-6" style={{ color: faint }}>
+              A standalone tool for producers — separate from consulting services.
             </p>
-            <p className="text-zinc-500 text-sm mb-6">
-              Built for Executive Producers, Production Managers, Producers, Cost Advisors, and Beginners starting out in production.
+            <p className="text-base leading-relaxed mb-4" style={{ color: muted }}>
+              Your NDA-compliant AI partner for production strategy. Drop in your creative board and instantly get ballpark budgets, timelines, and logistical realities — catching red flags before they become expensive mistakes.
             </p>
+            <p className="text-sm italic mb-8" style={{ color: copper }}>"Never go into a client meeting blind again."</p>
             <a
-              href="https://preview--prod-bid-buddy.lovable.app"
+              href="https://prod-bid-buddy.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-copper inline-flex items-center gap-2"
             >
-              Try It Free <ArrowRight size={16} />
+              Try Production Bid Desk <ExternalLink size={15} />
             </a>
+            <p className="text-xs mt-3" style={{ color: faint }}>Live App · Free to Try</p>
           </div>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-sm overflow-hidden">
+          <div className="rounded-sm overflow-hidden" style={{ border: `1px solid ${border}` }}>
             <iframe
-              src="https://preview--prod-bid-buddy.lovable.app"
+              src="https://prod-bid-buddy.lovable.app"
               className="w-full h-80 sm:h-96"
               title="Production Bid Desk Demo"
               loading="lazy"
@@ -305,10 +246,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── ABOUT STRIP ── */}
-      <section className="bg-zinc-900 border-y border-zinc-800 py-10 px-4 sm:px-6 lg:px-8">
+      {/* ABOUT STRIP */}
+      <section className="border-b py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: cream, borderColor: border }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-6">
-          <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-copper shrink-0">
+          <div className="w-16 h-16 rounded-full overflow-hidden shrink-0" style={{ border: `2px solid ${copper}` }}>
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face"
               alt="Andrea Salinas"
@@ -316,9 +257,9 @@ export default function Home() {
             />
           </div>
           <div className="text-center sm:text-left">
-            <p className="font-display font-bold text-offwhite text-lg">Andrea Salinas</p>
-            <p className="text-zinc-400 text-sm mt-1 max-w-xl">
-              20+ years producing campaigns for Fortune 100 brands. Now building AI tools that give businesses back their time.
+            <p className="font-display font-bold text-lg" style={{ color: charcoal }}>Andrea Salinas</p>
+            <p className="text-sm mt-1 max-w-xl" style={{ color: muted }}>
+              Global Integrated Producer · AI Consultant · 23 years managing multi-million dollar campaigns for Fortune 100 brands including Walmart, McDonald's, Hyundai, Pepsi, and more. Now building AI tools and agents that give brands and businesses a real edge.
             </p>
           </div>
           <div className="sm:ml-auto shrink-0">
@@ -327,40 +268,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
+      {/* CONTACT */}
       <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="section-label mb-3">Let's Connect</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            Ready to Start?
+          <p className="section-label mb-3">Let's Work Together</p>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4" style={{ color: charcoal }}>
+            Ready to Produce<br />
+            <span style={{ color: copper }}>Something Great?</span>
           </h2>
-          <p className="text-zinc-400 mb-10 text-base leading-relaxed">
-            Whether you're a brand, agency, realtor, dental practice, or entrepreneur — let's talk about how AI can work for you.
+          <p className="mb-10 text-base leading-relaxed" style={{ color: muted }}>
+            Whether you need AI video production, production consulting, or AI automation — I'm open for new clients. Let's talk.
           </p>
-          <a
-            href="mailto:hello@aigrouptech.co"
-            className="btn-copper inline-flex items-center gap-2 text-base"
-          >
-            <Mail size={18} /> hello@aigrouptech.co
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hello@aigrouptech.co" className="btn-copper inline-flex items-center gap-2 text-base">
+              <Mail size={18} /> Send an Email
+            </a>
+            <a
+              href="https://linkedin.com/in/andreasalinas"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline inline-flex items-center gap-2 text-base"
+            >
+              LinkedIn <ExternalLink size={14} />
+            </a>
+          </div>
+          <p className="text-sm mt-6" style={{ color: faint }}>Houston, TX · Available for remote & on-site projects worldwide</p>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-8 px-4 sm:px-6 lg:px-8">
+      {/* FOOTER */}
+      <footer className="border-t py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: sand, borderColor: border }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-display font-bold text-lg">
-            <span className="text-offwhite">ANDREA</span>
-            <span className="text-copper"> SALINAS</span>
+            <span style={{ color: charcoal }}>ANDREA</span>
+            <span style={{ color: copper }}> SALINAS</span>
           </p>
-          <p className="text-zinc-600 text-xs">
-            © {new Date().getFullYear()} Andrea Salinas · aigrouptech.co
-          </p>
-          <div className="flex gap-6">
-            <Link to="/work" className="text-zinc-500 hover:text-offwhite text-sm transition-colors">Work</Link>
-            <Link to="/about" className="text-zinc-500 hover:text-offwhite text-sm transition-colors">About</Link>
-            <a href="mailto:hello@aigrouptech.co" className="text-zinc-500 hover:text-offwhite text-sm transition-colors">Contact</a>
+          <div className="flex flex-wrap gap-4 justify-center text-xs" style={{ color: faint }}>
+            <span>AI VIDEO PRODUCTION</span>
+            <span>·</span>
+            <span>PRODUCTION CONSULTING</span>
+            <span>·</span>
+            <span>AI AUTOMATION</span>
+            <span>·</span>
+            <span>PRODUCTION BID DESK</span>
           </div>
+          <p className="text-xs" style={{ color: faint }}>
+            © {new Date().getFullYear()} Andrea Salinas. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
