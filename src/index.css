@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-charcoal text-offwhite font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-copper {
+    @apply bg-copper text-white px-6 py-3 font-body font-medium tracking-wide transition-all duration-200 hover:bg-copper-dark;
+  }
+  .btn-outline {
+    @apply border border-copper text-copper px-6 py-3 font-body font-medium tracking-wide transition-all duration-200 hover:bg-copper hover:text-white;
+  }
+  .section-label {
+    @apply text-copper font-mono text-xs tracking-widest uppercase;
+  }
+  .card-dark {
+    @apply bg-zinc-900 border border-zinc-800 p-6;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #B87333, #D4956A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
