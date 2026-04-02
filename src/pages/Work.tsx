@@ -3,6 +3,8 @@ import Nav from '../components/Nav'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
+const BASE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663489371740/Q9Z5UhYGXxbH7HRiHVW6PZ'
+
 const SPOTS = [
   // Walmart
   {
@@ -11,7 +13,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/WGLG4204000H_N_FY23HOLIDAY_THISISHOWWEHOLIDAY_HA30_Subtitled-NFA_30-50MB-Unslated.mp4',
+    url: `${BASE}/walmart_holiday_fy23_ff0bf41f.mp4`,
   },
   {
     brand: 'Walmart',
@@ -19,7 +21,7 @@ const SPOTS = [
     length: ':15',
     type: 'TV · Broadcast',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/WGLG4251000H_N_FY23HOLIDAY_THISISHOWWEHOLIDAYCELEBRATEREV1_HA15_Subtitled-NFA_30-50MB-Unslated.mp4',
+    url: `${BASE}/walmart_holiday_celebrate_15_6d5d9bb7.mp4`,
   },
   {
     brand: 'Walmart',
@@ -27,7 +29,7 @@ const SPOTS = [
     length: ':15',
     type: 'Social · Snapchat',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/FY24_Q1_W+_USM_SoccerGirls_VerB_HA_15s_Snapchat.mp4',
+    url: `${BASE}/walmart_soccergirls_15_eb5ace34.mp4`,
   },
   {
     brand: 'Walmart',
@@ -35,7 +37,7 @@ const SPOTS = [
     length: ':15',
     type: 'TV · Broadcast',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/WGLG4379000H_D_FY24Q1EDLP_VLPBPETOLV_HA15_30-50MB_Unslated.mp4',
+    url: `${BASE}/walmart_edlp_15_95fa048d.mp4`,
   },
   // McDonald's
   {
@@ -44,7 +46,7 @@ const SPOTS = [
     length: ':15',
     type: 'OLV · Digital',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/MCLL534522V_$2.29SausageMcMuffin&HashBrownsGCMEnglish-1516-9_NS.mp4',
+    url: `${BASE}/mcdonalds_sausagemcmuffin_15_432c3eec.mp4`,
   },
   {
     brand: "McDonald's",
@@ -52,7 +54,7 @@ const SPOTS = [
     length: ':15',
     type: 'OLV · Digital',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/MCWK201524V_FiveReason_GCM_15_OLV_16x9_Agency.mp4',
+    url: `${BASE}/mcdonalds_fivereason_15_17de4dc0.mp4`,
   },
   {
     brand: "McDonald's",
@@ -60,7 +62,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/MCLZ570322V_2_FOR_5dlr_Core_Breakfast_HCM_Spanish_30_16x9_NS.mp4',
+    url: `${BASE}/mcdonalds_breakfast_spanish_30_09fd57a7.mp4`,
   },
   // Hyundai
   {
@@ -69,7 +71,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/HNHN4001000H_UNDERADIFFERENTLIGHT_30_Broadband-1920x1080.mp4',
+    url: `${BASE}/hyundai_underadifferentlight_30_51dc585b.mp4`,
   },
   {
     brand: 'Hyundai',
@@ -77,7 +79,7 @@ const SPOTS = [
     length: ':15',
     type: 'TV · Broadcast',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/HNHN4002000H_UNDERADIFFERENTLIGHT15_SM-16x9.mp4',
+    url: `${BASE}/hyundai_underadifferentlight_15_c5a2b74e.mp4`,
   },
   {
     brand: 'Hyundai',
@@ -85,7 +87,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/HNHN5001000H_MY25_Palisade_Elevandoloquesigue_30_Spanish_Agency.mp4',
+    url: `${BASE}/hyundai_palisade_spanish_30_8e2c0fca.mp4`,
   },
   {
     brand: 'Hyundai',
@@ -93,7 +95,7 @@ const SPOTS = [
     length: ':15',
     type: 'YouTube · PR',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/HNHN4011000H_MY25_Tucson_Rightsizing-15_Spanish_PR-YouTube.mp4',
+    url: `${BASE}/hyundai_tucson_spanish_15_4418891f.mp4`,
   },
   // H-E-B
   {
@@ -102,7 +104,7 @@ const SPOTS = [
     length: ':15',
     type: 'YouTube · Digital',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/ZHEB5361000H_SpanishTV_HMBrand_Seafood_2025_Ceviche_HD_15_YT-1920x1080.mp4',
+    url: `${BASE}/heb_seafood_ceviche_spanish_15_e22e434a.mp4`,
   },
   // Mattress Firm
   {
@@ -111,7 +113,7 @@ const SPOTS = [
     length: ':15',
     type: 'TV · Broadcast',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/ZBMF240025HMFRM-ES_16x9_evergreen_brand-whymfrm_MFRM_spinning-LPG-expertise_15_TV_Broadband-1920x1080_Unslated.mp4',
+    url: `${BASE}/mattressfirm_brand_spanish_15_c2c7974a.mp4`,
   },
   {
     brand: 'Mattress Firm',
@@ -119,7 +121,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'Spanish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/ZBMF240053HMFRM-ES_16x9_JFSWK37-40_bromo-vendor_TSI-TPX-100_onhold-500-300IG_30_TV_Broadband-1920x1080_Unslated.mp4',
+    url: `${BASE}/mattressfirm_promo_spanish_30_db55e141.mp4`,
   },
   // Baylor
   {
@@ -128,7 +130,7 @@ const SPOTS = [
     length: ':30',
     type: 'TV · Broadcast',
     lang: 'English',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/BCMTV202503H_BeyondEducation30_Agency.mp4',
+    url: `${BASE}/baylor_beyondeducation_30_85162043.mp4`,
   },
   // Dos Equis
   {
@@ -137,7 +139,7 @@ const SPOTS = [
     length: ':30',
     type: 'Digital · OLV',
     lang: 'Spanglish',
-    url: 'https://cdn.manus.im/uploads/webdev/andie-salinas-portfolio/XXLNC2511_Educational_Video_Always-On_ANTHEM_30SEC_Spanglish_16x9(2).mov',
+    url: `${BASE}/dosxx_anthem_spanglish_30_61faa594.mp4`,
   },
 ]
 
@@ -211,8 +213,8 @@ export default function Work() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-zinc-500 text-sm mb-4">Ready to create something this powerful for your brand?</p>
-          <Link to="/#contact"
-            onClick={e => { e.preventDefault(); window.location.href = '/#contact' }}
+          <Link to="/"
+            onClick={() => { setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100) }}
             className="btn-copper inline-flex items-center gap-2"
           >
             Work With Me <ArrowRight size={16} />
