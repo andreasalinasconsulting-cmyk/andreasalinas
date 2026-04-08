@@ -19,7 +19,7 @@ const border = 'rgba(255,255,255,0.10)'
 const lightGray = '#111111'
 
 // Hero image — Andie Salinas (dark cinematic)
-const HERO_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663489371740/Q9Z5UhYGXxbH7HRiHVW6PZ/hero_latina_working-oQZFRpzVxfNkpCqUEkzHiG.webp'
+const HERO_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663489371740/pqxHKSRqFLdRmdsz.png'
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
