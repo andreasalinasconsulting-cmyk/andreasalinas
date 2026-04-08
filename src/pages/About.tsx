@@ -37,7 +37,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-[3/4] overflow-hidden">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489371740/Q9Z5UhYGXxbH7HRiHVW6PZ/sbi_scene3_f8ed67f6.jpg"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489371740/Q9Z5UhYGXxbH7HRiHVW6PZ/services_onset_ponytail-dfyS2NkZySZKK2Hi4MLfwP.webp"
                 alt="Andrea Salinas"
                 className="w-full h-full object-cover"
               />
