@@ -18,7 +18,7 @@ const border = 'rgba(0,0,0,0.08)'
 const lightGray = '#F8F8F8'
 
 // Hero image — production set photo (neutral, no identifiable people)
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1400&q=80&fit=crop'
+const HERO_IMAGE = ''
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",

@@ -1,4 +1,4 @@
-// Design: Minimal white nav, "Andrea Salinas" serif wordmark, uppercase sans-serif links
+// Design: White background, "Andrea Salinas" serif wordmark, uppercase sans-serif links
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
@@ -39,7 +39,7 @@ export default function Nav() {
               Andrea Salinas
             </span>
           </Link>
-          <div className="hidden md:flex" style={{ alignItems:"center", gap:"2rem" }}>
+          <div className="hidden md:flex" style={{ alignItems:"center", gap:"1.5rem" }}>
             {links.map(link =>
               link.href.startsWith("/#") ? (
                 <button key={link.label} onClick={() => handleNav(link.href)}
@@ -55,10 +55,19 @@ export default function Nav() {
                 >{link.label}</Link>
               )
             )}
+            <a href="https://vocastack.com" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.7rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:copper, textDecoration:"none", border:`1px solid ${copper}`, padding:"0.35rem 0.9rem" }}
+            >VocaStack</a>
+            <a href="https://prodbiddesk.com" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.7rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:copper, textDecoration:"none", border:`1px solid ${copper}`, padding:"0.35rem 0.9rem" }}
+            >Prod Bid Desk</a>
             <a href="/#contact" onClick={e => { e.preventDefault(); handleNav("/#contact") }}
               style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.7rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"#fff", backgroundColor:copper, padding:"0.5rem 1.4rem", textDecoration:"none" }}
             >Hire Me</a>
           </div>
+          <button className="md:hidden" onClick={() => setOpen(!open)}
+            style={{ background:"none", border:"none", cursor:"pointer", color:charcoal }}
+          >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -77,6 +86,15 @@ export default function Nav() {
                 >{link.label}</Link>
               )
             )}
+            <a href="https://vocastack.com" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:copper, textDecoration:"none", borderBottom:"1px solid rgba(0,0,0,0.08)", padding:"0.75rem 0", display:"block" }}
+            >VocaStack</a>
+            <a href="https://prodbiddesk.com" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:copper, textDecoration:"none", borderBottom:"1px solid rgba(0,0,0,0.08)", padding:"0.75rem 0", display:"block" }}
+            >Prod Bid Desk</a>
+            <a href="/#contact" onClick={e => { e.preventDefault(); handleNav("/#contact") }}
+              style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"#fff", backgroundColor:copper, padding:"0.75rem 1rem", textDecoration:"none", display:"block", textAlign:"center", marginTop:"0.5rem" }}
+            >Hire Me</a>
           </div>
         </div>
       )}

@@ -10,16 +10,15 @@ import { ArrowRight, Mail, ExternalLink } from 'lucide-react'
 
 // Colors
 const white = '#FFFFFF'
-const darkBg = '#0A0A0A'
-const charcoal = '#E8E8E8'
-const copper = '#C9963A'
-const muted = '#A0A0A0'
-const faint = '#666666'
-const border = 'rgba(255,255,255,0.10)'
-const lightGray = '#111111'
+const charcoal = '#1C1C1C'
+const copper = '#B87333'
+const muted = '#5A5A5A'
+const faint = '#8A8A8A'
+const border = 'rgba(0,0,0,0.08)'
+const lightGray = '#F8F8F8'
 
-// Hero image — Andie Salinas (dark cinematic)
-const HERO_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663489371740/pqxHKSRqFLdRmdsz.png'
+// Hero image — production set photo (neutral, no identifiable people)
+const HERO_IMAGE = ''
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
@@ -32,7 +31,7 @@ export default function Home() {
   const servicesRef = useRef<HTMLElement>(null)
 
   return (
-    <div style={{ backgroundColor: darkBg, color: '#E8E8E8', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: white, color: charcoal, minHeight: '100vh' }}>
       <Nav />
 
       {/* ── HERO ── */}
@@ -80,13 +79,13 @@ export default function Home() {
             </div>
           </div>
           {/* Right: image */}
-          <div style={{ position: 'relative', height: '480px', overflow: 'hidden' }} className="hero-image-wrap">
+          <div style={{ position: 'relative', height: '580px', overflow: 'hidden' }} className="hero-image-wrap">
             <img
               src={HERO_IMAGE}
               alt="Production set"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, transparent 50%, rgba(10,10,10,0.5) 100%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, transparent 60%, rgba(255,255,255,0.15) 100%)' }} />
           </div>
         </div>
       </section>
@@ -220,103 +219,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section style={{ padding: '6rem 2rem', backgroundColor: '#0D0D0D', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <p className="section-label" style={{ marginBottom: '1rem' }}>Quick Facts</p>
-          <h2 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontWeight: 700, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', lineHeight: 1.1, marginBottom: '3rem', color: charcoal }}>
-            Frequently Asked <em style={{ color: copper, fontStyle: 'italic' }}>Questions</em>
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {[
-              { q: 'What types of brands do you work with?', a: 'Fortune 100 and mid-market brands across CPG, automotive, healthcare, QSR, retail, and nonprofit — with deep expertise in multicultural and bilingual (English/Spanish) campaigns.' },
-              { q: 'What is AI Video Production?', a: 'Broadcast-quality video campaigns produced using AI tools — photorealistic characters, cinematic visuals, and full post-production — at a fraction of traditional production costs.' },
-              { q: 'What is Production Bid Desk?', a: 'An AI-powered tool that generates professional production bids, budgets, and timelines in seconds. Built for producers, agencies, and brands who need fast, accurate estimates.' },
-              { q: 'What is VocaStack?', a: 'A custom AI voice agent platform that answers calls, captures leads, pre-qualifies clients, and handles intake 24/7 — built for small businesses and service providers.' },
-              { q: 'Do you work remotely or on-site?', a: 'Both. I work with clients worldwide — remote, on-site, or hybrid depending on the project scope.' },
-              { q: 'How do I get started?', a: 'Send an email to hello@aigrouptech.co or connect on LinkedIn. I typically respond within 24 hours.' },
-            ].map((item, i) => (
-              <div key={i} style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '1.5rem 0', display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '2rem', alignItems: 'start' }} className="faq-row">
-                <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '1.05rem', fontWeight: 600, color: charcoal, lineHeight: 1.4 }}>{item.q}</p>
-                <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.875rem', lineHeight: 1.8, color: muted }}>{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CONTACT ── */}
-      <section id="contact" style={{ padding: '7rem 2rem', maxWidth: '860px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }} className="contact-grid">
-          <div>
-            <p className="section-label" style={{ marginBottom: '1rem' }}>Let's Work Together</p>
-            <h2 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontWeight: 700, fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1.1, marginBottom: '1.25rem', color: charcoal }}>
-              Ready to Produce<br />
-              <em style={{ color: copper, fontStyle: 'italic' }}>Something Great?</em>
-            </h2>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.9rem', lineHeight: 1.8, color: muted, marginBottom: '2rem' }}>
-              Whether you need AI video production, production consulting, or AI automation — I'm open for new clients. Let's talk.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <a href="mailto:hello@aigrouptech.co" className="btn-copper" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }}>
-                <Mail size={16} /> Send an Email
-              </a>
-              <a href="https://linkedin.com/in/andreasalinas" target="_blank" rel="noopener noreferrer"
-                className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }}>
-                LinkedIn <ExternalLink size={13} />
-              </a>
-            </div>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: faint, marginTop: '1.5rem' }}>Available for remote & on-site projects worldwide</p>
-          </div>
-          <div style={{ borderLeft: '1px solid rgba(255,255,255,0.07)', paddingLeft: '3rem' }}>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: copper, marginBottom: '1rem' }}>About Andrea</p>
-            <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '1.15rem', lineHeight: 1.7, color: charcoal, marginBottom: '1rem', fontStyle: 'italic' }}>
-              "I've spent 23 years in rooms where decisions get made. Now I'm building the tools that make those decisions faster, smarter, and more accessible to everyone."
-            </p>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.85rem', lineHeight: 1.8, color: muted, marginBottom: '1rem' }}>
-              Global Integrated Producer, AI Consultant, and Virtual Agent Architect. 23+ years producing Fortune 100 campaigns — Walmart, McDonald's, Hyundai, H-E-B, and more.
-            </p>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.85rem', lineHeight: 1.8, color: muted }}>
-              Creator of <strong style={{ color: charcoal }}>Production Bid Desk</strong> and <strong style={{ color: charcoal }}>VocaStack</strong> — AI tools built for producers and small businesses.
-            </p>
-          </div>
+      <section id="contact" style={{ padding: '7rem 2rem', maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
+        <p className="section-label" style={{ marginBottom: '1rem' }}>Let's Work Together</p>
+        <h2 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontWeight: 700, fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)', lineHeight: 1.1, marginBottom: '1.25rem', color: charcoal }}>
+          Ready to Produce<br />
+          <em style={{ color: copper, fontStyle: 'italic' }}>Something Great?</em>
+        </h2>
+        <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.95rem', lineHeight: 1.8, color: muted, marginBottom: '2.5rem' }}>
+          Whether you need AI video production, production consulting, or AI automation — I'm open for new clients. Let's talk.
+        </p>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="mailto:hello@aigrouptech.co" className="btn-copper" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Mail size={16} /> Send an Email
+          </a>
+          <a href="https://linkedin.com/in/andreasalinas" target="_blank" rel="noopener noreferrer"
+            className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            LinkedIn <ExternalLink size={13} />
+          </a>
         </div>
+        <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: faint, marginTop: '1.5rem' }}>Available for remote & on-site projects worldwide</p>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '3rem 2rem', backgroundColor: '#080808' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '3rem', marginBottom: '3rem' }} className="footer-grid">
-            <div>
-              <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontWeight: 700, fontSize: '1.2rem', color: charcoal, marginBottom: '0.75rem' }}>Andrea Salinas</p>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.8rem', lineHeight: 1.7, color: muted, maxWidth: '280px' }}>
-                Global Integrated Producer · AI Consultant · Virtual Agent Architect. 23+ years. Fortune 100.
-              </p>
-            </div>
-            <div>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: copper, marginBottom: '1rem' }}>Services</p>
-              {['AI Video Production', 'Production Consulting', 'AI Automation & Agents'].map(s => (
-                <p key={s} style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: muted, marginBottom: '0.5rem' }}>{s}</p>
-              ))}
-            </div>
-            <div>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: copper, marginBottom: '1rem' }}>Products</p>
-              <a href="https://prod-bid-desk.manus.space" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: muted, display: 'block', marginBottom: '0.5rem', textDecoration: 'none' }}
-                onMouseEnter={e => (e.currentTarget.style.color = copper)} onMouseLeave={e => (e.currentTarget.style.color = muted)}>Prod Bid Desk</a>
-              <a href="https://vocastack.com" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: muted, display: 'block', marginBottom: '0.5rem', textDecoration: 'none' }}
-                onMouseEnter={e => (e.currentTarget.style.color = copper)} onMouseLeave={e => (e.currentTarget.style.color = muted)}>VocaStack</a>
-            </div>
-            <div>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: copper, marginBottom: '1rem' }}>Quick Facts</p>
-              {['23+ Years Experience', '100+ Campaigns', '18+ Fortune 100 Brands', 'English & Spanish', 'Remote & On-Site'].map(f => (
-                <p key={f} style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.72rem', color: muted, marginBottom: '0.4rem' }}>{f}</p>
-              ))}
-            </div>
+      <footer style={{ borderTop: `1px solid ${border}`, padding: '2rem', backgroundColor: lightGray }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+          <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontWeight: 700, fontSize: '1.1rem', color: charcoal }}>Andrea Salinas</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+            {['AI Video Production', 'Production Consulting', 'AI Automation'].map(s => (
+              <span key={s} style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: faint }}>{s}</span>
+            ))}
           </div>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.7rem', color: faint }}>© {new Date().getFullYear()} Andrea Salinas. All rights reserved.</p>
-            <a href="mailto:hello@aigrouptech.co" style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.7rem', color: copper, textDecoration: 'none' }}>hello@aigrouptech.co</a>
-          </div>
+          <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: '0.75rem', color: faint }}>© {new Date().getFullYear()} Andrea Salinas. All rights reserved.</p>
         </div>
       </footer>
 
@@ -326,9 +260,6 @@ export default function Home() {
           .hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
           .hero-image-wrap { height: 280px !important; }
           .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-          .faq-row { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
-          .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
         }
       `}</style>
     </div>
