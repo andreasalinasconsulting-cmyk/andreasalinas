@@ -19,7 +19,7 @@ const border = 'rgba(255,255,255,0.10)'
 const lightGray = '#111111'
 
 // Hero image — Andie Salinas (dark cinematic)
-const HERO_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663489371740/lFdgQalvZEmFSrph.jpg'
+const HERO_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663489371740/Q9Z5UhYGXxbH7HRiHVW6PZ/hero_latina_onset-ncU8fhjKzYZyGQbGS99fTL.webp'
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
@@ -80,7 +80,7 @@ export default function Home() {
             </div>
           </div>
           {/* Right: image */}
-          <div style={{ position: 'relative', height: '580px', overflow: 'hidden' }} className="hero-image-wrap">
+          <div style={{ position: 'relative', height: '480px', overflow: 'hidden' }} className="hero-image-wrap">
             <img
               src={HERO_IMAGE}
               alt="Production set"
