@@ -18,7 +18,7 @@ const border = 'rgba(0,0,0,0.08)'
 const lightGray = '#F8F8F8'
 
 // Hero image — production set photo (neutral, no identifiable people)
-const HERO_IMAGE = ''
+const HERO_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663489371740/ZxOoqavFScnDQnOC.jpg'
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
