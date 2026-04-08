@@ -10,15 +10,16 @@ import { ArrowRight, Mail, ExternalLink } from 'lucide-react'
 
 // Colors
 const white = '#FFFFFF'
-const charcoal = '#1C1C1C'
-const copper = '#B87333'
-const muted = '#5A5A5A'
-const faint = '#8A8A8A'
-const border = 'rgba(0,0,0,0.08)'
-const lightGray = '#F8F8F8'
+const darkBg = '#0A0A0A'
+const charcoal = '#E8E8E8'
+const copper = '#C9963A'
+const muted = '#A0A0A0'
+const faint = '#666666'
+const border = 'rgba(255,255,255,0.10)'
+const lightGray = '#111111'
 
-// Hero image — production set photo (neutral, no identifiable people)
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1400&q=80&fit=crop'
+// Hero image — Andie Salinas (dark cinematic)
+const HERO_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663489371740/lFdgQalvZEmFSrph.jpg'
 
 const CLIENTS = [
   'Procter & Gamble', 'Walmart', 'Pepsi', 'Coca-Cola', "McDonald's",
@@ -31,7 +32,7 @@ export default function Home() {
   const servicesRef = useRef<HTMLElement>(null)
 
   return (
-    <div style={{ backgroundColor: white, color: charcoal, minHeight: '100vh' }}>
+    <div style={{ backgroundColor: darkBg, color: '#E8E8E8', minHeight: '100vh' }}>
       <Nav />
 
       {/* ── HERO ── */}
@@ -85,7 +86,7 @@ export default function Home() {
               alt="Production set"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, transparent 60%, rgba(255,255,255,0.15) 100%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, transparent 50%, rgba(10,10,10,0.5) 100%)' }} />
           </div>
         </div>
       </section>

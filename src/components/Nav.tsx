@@ -3,9 +3,9 @@ import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 
-const charcoal = "#1C1C1C"
+const charcoal = "#E8E8E8"
 const copper = "#B87333"
-const muted = "#6A6A6A"
+const muted = "#888888"
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -31,7 +31,7 @@ export default function Nav() {
   }
 
   return (
-    <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:50, backgroundColor:"rgba(255,255,255,0.97)", backdropFilter:"blur(12px)", borderBottom:"1px solid rgba(0,0,0,0.08)" }}>
+    <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:50, backgroundColor:"rgba(10,10,10,0.95)", backdropFilter:"blur(12px)", borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
       <div style={{ maxWidth:"1280px", margin:"0 auto", padding:"0 2rem" }}>
         <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", height:"64px" }}>
           <Link to="/" style={{ textDecoration:"none" }}>
@@ -69,16 +69,16 @@ export default function Nav() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden" style={{ backgroundColor:"#fff", borderTop:"1px solid rgba(0,0,0,0.08)" }}>
+        <div className="md:hidden" style={{ backgroundColor:"#0A0A0A", borderTop:"1px solid rgba(255,255,255,0.08)" }}>
           <div style={{ padding:"1rem 2rem", display:"flex", flexDirection:"column", gap:"0.25rem" }}>
             {links.map(link =>
               link.href.startsWith("/#") ? (
                 <button key={link.label} onClick={() => handleNav(link.href)}
-                  style={{ textAlign:"left", fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:500, letterSpacing:"0.14em", textTransform:"uppercase", color:charcoal, background:"none", border:"none", borderBottom:"1px solid rgba(0,0,0,0.08)", padding:"0.75rem 0", cursor:"pointer" }}
+                  style={{ textAlign:"left", fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:500, letterSpacing:"0.14em", textTransform:"uppercase", color:charcoal, background:"none", border:"none", borderBottom:"1px solid rgba(255,255,255,0.08)", padding:"0.75rem 0", cursor:"pointer" }}
                 >{link.label}</button>
               ) : (
                 <Link key={link.label} to={link.href} onClick={() => setOpen(false)}
-                  style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:500, letterSpacing:"0.14em", textTransform:"uppercase", color:charcoal, textDecoration:"none", borderBottom:"1px solid rgba(0,0,0,0.08)", padding:"0.75rem 0", display:"block" }}
+                  style={{ fontFamily:"Outfit, sans-serif", fontSize:"0.75rem", fontWeight:500, letterSpacing:"0.14em", textTransform:"uppercase", color:charcoal, textDecoration:"none", borderBottom:"1px solid rgba(255,255,255,0.08)", padding:"0.75rem 0", display:"block" }}
                 >{link.label}</Link>
               )
             )}
